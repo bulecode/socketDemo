@@ -21,7 +21,7 @@ public class SocketUtil {
      * @param body   只能为int、string或者自定的stringWithLen  其他类型会被忽略
      * @throws IOException
      */
-    public static void writeData(DataOutputStream os, int version, int messageId, int seqNum, Object... body) throws IOException {
+    public synchronized static void writeData(DataOutputStream os, int version, int messageId, int seqNum, Object... body) throws IOException {
         int length = 0;
         //计算回复消息体的长度
         for (Object object : body) {
